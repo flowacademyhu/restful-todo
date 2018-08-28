@@ -27,4 +27,12 @@ users.delete('/userId', (req, res) => {
   res.json(req.user);
 });
 
+// Show
+users.get('/:id', (req, res) => {
+  User.findById(req.params.id).then((userRecord) => {
+    let ctx = { user: userRecord };
+    res.json(ctx);
+  });
+});
+
 module.exports = users;
