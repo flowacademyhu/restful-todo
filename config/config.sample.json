@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "restful_todo",
-    "host": "127.0.0.1",
+    "username": "gabor",
+    "password": "gabor",
+    "database": "webapp_database",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
