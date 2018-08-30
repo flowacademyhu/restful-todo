@@ -10,11 +10,6 @@ todos.get('/', (req, res) => {
   });
 });
 
-// New
-todos.get('/new', (req, res) => {
-  res.json({});
-});
-
 // Show
 todos.get('/:id', (req, res) => {
   Todo.findById(req.params.id).then((todoRecord) => {
@@ -24,26 +19,17 @@ todos.get('/:id', (req, res) => {
 
 // Create
 todos.post('/', (req, res) => {
-  Todo.create({
-    //
-  }).then(todo => {
-    res.json();
+  Todo.create(req.body).then(todo => {
+    res.json(todo);
   }).catch(error => {
     res.json(error);
-  });
-});
-
-// Edit
-todos.get('/:id/edit', (req, res) => {
-  Todo.findById(req.params.id).then((todoRecord) => {
-    res.json(todoRecord);
   });
 });
 
 // Update
 todos.put('/:id', (req, res) => {
   Todo.findById(req.params.id).then((todoRecord) => {
-    todoRecord.update(req.body).then((updatedTodoRecord) => {
+    todoRecord.update().then((updatedTodoRecord) => {
       res.json(updatedTodoRecord)
     });
   });
